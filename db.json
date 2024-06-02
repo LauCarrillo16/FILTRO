@@ -10,8 +10,13 @@
                 "movil": "3133583659",
                 "fijo": "6583384"
             },
-            "estatus": "Inscrito",
-            "riesgo": ""
+            "estatus": "Aprobado",
+            "riesgo": "bajo",
+            "notasRegistro": {
+                "notaTeorica": 85,
+                "notaPractica": 95,
+                "promedio": 90.0
+            }
         }
     ],
     "trainers": [],
