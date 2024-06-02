@@ -80,3 +80,21 @@ def registrarRuta():
 
     datos.guardarDatos()
     print("Ruta registrada con exito")
+
+
+def nuevoStack():
+    nombreStack = input("Ingrese el nombre del nuevo stack: ")
+    capacidad = int(input("Ingrese la capacidad del Stack: "))
+    horas = int(input("Ingrese las horas ocupadas: "))
+    
+    nuevoStack = {
+        nombreStack: {
+            "capacidad": capacidad,
+            "horas": horas
+        }
+    }
+
+    datos.data["stacks"][0].update(nuevoStack)
+
+    datos.guardarDatos()
+    print("Stack creado con exito")

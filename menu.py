@@ -24,6 +24,7 @@ def menuCoordinador():
         print("1. Registrar camper")
         print("2. Registrar nota de camper registrado")
         print("3. Registrar nueva ruta")
+        print("4. Registrar nuevo Stack")
         opc = 0
         try:
             opc = int(input("Ingrese la opcion deseada: "))
@@ -35,4 +36,6 @@ def menuCoordinador():
             gestionCampus.registrarNotaCamper()
         elif opc == 3:
             gestionCampus.registrarRuta()
+        elif opc == 4:
+            gestionCampus.nuevoStack()
         

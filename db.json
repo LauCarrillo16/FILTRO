@@ -79,15 +79,19 @@
         {
             "area1": {
                 "capacidad": 33,
-                "clases": 4
+                "horas": 4
             },
             "area2": {
                 "capacidad": 33,
-                "clases": 4
+                "horas": 4
             },
             "area3": {
                 "capacidad": 33,
-                "clases": 4
+                "horas": 4
+            },
+            "area4": {
+                "capacidad": 33,
+                "horas": 4
             }
         }
     ]
