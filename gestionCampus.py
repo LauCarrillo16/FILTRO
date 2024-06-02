@@ -50,3 +50,33 @@ def registrarNotaCamper():
         print("Notas registradas y camper actualizado con exito")
         return
     print("No se encontro el camper")
+
+#Registrar ruta
+def registrarRuta():
+    nombreRuta = input("Ingrese el nombre de la nueva ruta: ")
+    nuevaRuta = {
+        "nombre": nombreRuta,
+        "modulos": {
+            "Fundamentos de programacion":[],
+            "Programacion web": [],
+            "Programacion formal": [],
+            "Bases de datos": [],
+            "Backend": []
+        }
+    }
+    print("A continuacion ingrese los temas para cada modulo")
+    
+    for modulo in nuevaRuta["modulos"]:
+        print(f"\nIngrese los temas para el modulo '{modulo}' (separado por comas): ")
+        temas = input().split(",")
+
+        temas = [tema.strip() for tema in temas]
+
+        nuevaRuta["modulos"][modulo] = temas
+
+    if "rutas" not in datos.data:
+        datos.data["rutas"] = []
+    datos.data["rutas"].append(nuevaRuta)
+
+    datos.guardarDatos()
+    print("Ruta registrada con exito")

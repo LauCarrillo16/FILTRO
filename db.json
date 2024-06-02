@@ -23,9 +23,56 @@
     "coordinadores": [],
     "rutas": [
         {
-            "rutaNodeJS": "",
-            "rutaJava": "",
-            "rutaNetCore": ""
+            "nombre": "Ruta NodeJs",
+            "modulos": {
+                "Fundamentos de programacion": [],
+                "Programacion Web": [],
+                "Programacion formal": [],
+                "Bases de datos": [],
+                "Brackend": []
+            }
+        },
+        {
+            "nombre": "Ruta Java",
+            "modulos": {
+                "Fundamentos de programacion": [],
+                "Programacion Web": [],
+                "Programacion formal": [],
+                "Bases de datos": [],
+                "Brackend": []
+            }
+        },
+        {
+            "nombre": "Ruta NetCore",
+            "modulos": {
+                "Fundamentos de programacion": [],
+                "Programacion Web": [],
+                "Programacion formal": [],
+                "Bases de datos": [],
+                "Brackend": []
+            }
+        },
+        {
+            "nombre": "AplicacionesMoviles",
+            "modulos": {
+                "Fundamentos de programacion": [
+                    "Pseint",
+                    "Python"
+                ],
+                "Programacion web": [
+                    "html",
+                    "css"
+                ],
+                "Programacion formal": [
+                    "java"
+                ],
+                "Bases de datos": [
+                    "mongodb"
+                ],
+                "Backend": [
+                    "pstgrest"
+                ]
+            }
         }
     ],
     "stacks": [
