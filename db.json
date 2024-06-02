@@ -1,0 +1,42 @@
+{
+    "campers": [
+        {
+            "cc": "1234340692",
+            "nombre": "Laura",
+            "apellido": "Carrillo",
+            "direccion": "la cumbre",
+            "acudiente": "claudia",
+            "contacto": {
+                "movil": "3133583659",
+                "fijo": "6583384"
+            },
+            "estatus": "Inscrito",
+            "riesgo": ""
+        }
+    ],
+    "trainers": [],
+    "coordinadores": [],
+    "rutas": [
+        {
+            "rutaNodeJS": "",
+            "rutaJava": "",
+            "rutaNetCore": ""
+        }
+    ],
+    "stacks": [
+        {
+            "area1": {
+                "capacidad": 33,
+                "clases": 4
+            },
+            "area2": {
+                "capacidad": 33,
+                "clases": 4
+            },
+            "area3": {
+                "capacidad": 33,
+                "clases": 4
+            }
+        }
+    ]
+}
