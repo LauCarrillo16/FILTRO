@@ -26,14 +26,22 @@
             "nombre": "Juan",
             "apellido": "Perez",
             "direccion": "cabecera",
-            "contacto": "3184952471"
+            "contacto": "3184952471",
+            "rutasAsignadas": [
+                {
+                    "ruta": "Ruta NodeJs",
+                    "stack": "area1",
+                    "horario": "6am"
+                }
+            ]
         },
         {
             "cc": "15746844",
             "nombre": "Ana",
             "apellido": "Morelo",
             "direccion": "conucos",
-            "contacto": "315547823"
+            "contacto": "315547823",
+            "rutasAsignadas": []
         }
     ],
     "coordinadores": [],
@@ -93,25 +101,84 @@
     ],
     "stacks": [
         {
-            "area1": {
-                "capacidad": 1,
-                "capacidadMaxima": 33,
-                "horas": 4
-            },
-            "area2": {
-                "capacidad": 0,
-                "capacidadMaxima": 33,
-                "horas": 4
-            },
-            "area3": {
-                "capacidad": 0,
-                "capacidadMaxima": 33,
-                "horas": 4
-            },
-            "area4": {
-                "capacidad": 0,
-                "capacidadMaxima": 33,
-                "horas": 4
+            "nombre": "area1",
+            "capacidad": 1,
+            "capacidadMaxima": 33,
+            "horarios": {
+                "h1": {
+                    "hora": "6am",
+                    "trainer": "37746639",
+                    "ruta": "Ruta NodeJs"
+                },
+                "h2": {
+                    "hora": "10am",
+                    "trainer": null,
+                    "ruta": null
+                },
+                "h3": {
+                    "hora": "2pm",
+                    "trainer": null,
+                    "ruta": null
+                },
+                "h4": {
+                    "hora": "6pm",
+                    "trainer": null,
+                    "ruta": null
+                }
+            }
+        },
+        {
+            "nombre": "area2",
+            "capacidad": 1,
+            "capacidadMaxima": 33,
+            "horarios": {
+                "h1": {
+                    "hora": "6am",
+                    "trainer": null,
+                    "ruta": null
+                },
+                "h2": {
+                    "hora": "10am",
+                    "trainer": null,
+                    "ruta": null
+                },
+                "h3": {
+                    "hora": "2pm",
+                    "trainer": null,
+                    "ruta": null
+                },
+                "h4": {
+                    "hora": "6pm",
+                    "trainer": null,
+                    "ruta": null
+                }
+            }
+        },
+        {
+            "nombre": "area1",
+            "capacidad": 1,
+            "capacidadMaxima": 33,
+            "horarios": {
+                "h1": {
+                    "hora": "6am",
+                    "trainer": null,
+                    "ruta": null
+                },
+                "h2": {
+                    "hora": "10am",
+                    "trainer": null,
+                    "ruta": null
+                },
+                "h3": {
+                    "hora": "2pm",
+                    "trainer": null,
+                    "ruta": null
+                },
+                "h4": {
+                    "hora": "6pm",
+                    "trainer": null,
+                    "ruta": null
+                }
             }
         }
     ]

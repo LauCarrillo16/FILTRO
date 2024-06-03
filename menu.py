@@ -49,6 +49,7 @@ def menuMatriculas():
     while True:
         print("Gestion de Matriculas")
         print("1. Asignar ruta a un Camper")
+        print("2. Asignar Trainer a ruta y stack")
         opc = 0
         try:
             opc = int(input("Ingrese la opcion deseada: "))
@@ -56,4 +57,6 @@ def menuMatriculas():
             print("Opcion invalida")
         if opc == 1:
             gestionCampus.asignarRuta()
+        elif opc == 2:
+            gestionCampus.asginarTrainerRuta()
             

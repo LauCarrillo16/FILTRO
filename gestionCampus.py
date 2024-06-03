@@ -9,6 +9,13 @@ def especificoCamper(cc):
             return camper
     return None
 
+#Buscar trainer por cc
+def especificoTrainer(cc):
+    for trainer in datos.data["trainers"]:
+        if trainer["cc"] == cc:
+            return trainer
+    return None
+
 #Nuevo Camper
 def registrarCamper():
     camper = {
@@ -86,6 +93,23 @@ def registrarRuta():
         datos.data["rutas"] = []
     datos.data["rutas"].append(nuevaRuta)
 
+    horas = {
+        "h1": "6am",
+        "h2": "10am",
+        "h3": "2pm",
+        "h4": "6pm"
+    }
+
+    for stack in datos.data["stacks"]:
+        if "horarios" not in stack:
+            stack["horarios"]= {}
+        for key, hora in horas.items():
+            if key not in stack["horarios"]:
+                stack["horarios"][key] ={
+                    "hora": hora,
+                    "Trainer" :None,
+                    "ruta": None
+                }
     datos.guardarDatos()
     print("Ruta registrada con exito")
 
@@ -156,8 +180,64 @@ def registrarTrainer():
         "apellido": input("Ingrese el apellido del nuevo trainer: "),
         "direccion": input("Ingrese la direccion del nuevo trainer: "),
         "contacto": input("Ingrese el telefono movil: "),
+        "rutasAsignadas":[]
 
     }
     datos.data["trainers"].append(trainer)
     datos.guardarDatos()
     print("Trainer registrado con exito")
+
+#Asignar Trainer a ruta y stack
+def asginarTrainerRuta():
+    cc = input("Ingrese el numero de documento del trainer: ")
+    trainer = especificoTrainer(cc)
+
+    if not trainer:
+        print("Trainer no encontrado")
+        return
+    
+    print("Rutas disponibles:")
+    for idx, ruta in enumerate(datos.data["rutas"], start=1):
+        print(f"{idx}. {ruta['nombre']}")
+
+    rutaSlec = int(input("Seleccione la ruta a asignar: ")) -1
+    if rutaSlec < 0 or rutaSlec >= len(datos.data["rutas"]):
+        print("Opcion invalida")
+        return
+    ruta = datos.data["rutas"][rutaSlec]
+
+    print("Stacks disponibles:")
+    for idx, stack in enumerate(datos.data["stacks"], start=1):
+        print(f"{idx}. {stack['nombre']}")
+
+    stackSlec = int(input("Seleccione un stack: "))-1
+    if stackSlec < 0 or stackSlec >= len(datos.data["stacks"]):
+        print("Opcion invalida")
+        return
+    stack = datos.data["stacks"][stackSlec]
+
+    print("Horarios disponibkles:")
+    for key, horario in stack["horarios"].items():
+        print(f"{key}. {horario['hora']}")
+    
+    horarioSelec = input("Seleccion el horario para asignar (h1, h2, h3): ")
+    if horarioSelec not in stack["horarios"]:
+        print("Horario invalido")
+        return
+    horario = stack["horarios"][horarioSelec]
+
+    if horario["trainer"] is not None:
+        print(f"Ya hay un trainer asignado en el stack '{stack['nombre']}' en el horario '{horario['hora']}'")
+        return
+    
+    horario["trainer"] = trainer["cc"]
+    horario["ruta"] = ruta["nombre"]
+
+    trainer["rutasAsignadas"].append({
+        "ruta": ruta["nombre"],
+        "stack": stack["nombre"],
+        "horario": horario["hora"]
+    })
+    datos.guardarDatos()
+    print(f"Trainer '{trainer['nombre']} {trainer['apellido']}' asignado a la ruta '{ruta['nombre']}' en el stack '{stack['nombre']}' en el horario '{horario['hora']}' con éxito")
+
