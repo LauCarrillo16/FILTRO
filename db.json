@@ -17,7 +17,18 @@
                 "notaPractica": 95,
                 "promedio": 90.0
             },
-            "rutaAsignada": "Ruta Java"
+            "rutaAsignada": {
+                "nombre": "Ruta NodeJs",
+                "modulos": {
+                    "Fundamentos de programacion": [],
+                    "Programacion Web": [],
+                    "Programacion formal": [],
+                    "Bases de datos": [],
+                    "Brackend": []
+                }
+            },
+            "fechaInicio": "2024-10-02",
+            "fechaFin": "2025-10-02"
         }
     ],
     "trainers": [
@@ -32,6 +43,11 @@
                     "ruta": "Ruta NodeJs",
                     "stack": "area1",
                     "horario": "6am"
+                },
+                {
+                    "ruta": "Ruta Java",
+                    "stack": "area1",
+                    "horario": "10am"
                 }
             ]
         },
@@ -102,7 +118,7 @@
     "stacks": [
         {
             "nombre": "area1",
-            "capacidad": 1,
+            "capacidad": 3,
             "capacidadMaxima": 33,
             "horarios": {
                 "h1": {
@@ -112,8 +128,8 @@
                 },
                 "h2": {
                     "hora": "10am",
-                    "trainer": null,
-                    "ruta": null
+                    "trainer": "37746639",
+                    "ruta": "Ruta Java"
                 },
                 "h3": {
                     "hora": "2pm",
@@ -129,7 +145,7 @@
         },
         {
             "nombre": "area2",
-            "capacidad": 1,
+            "capacidad": 0,
             "capacidadMaxima": 33,
             "horarios": {
                 "h1": {
@@ -155,8 +171,8 @@
             }
         },
         {
-            "nombre": "area1",
-            "capacidad": 1,
+            "nombre": "area3",
+            "capacidad": 0,
             "capacidadMaxima": 33,
             "horarios": {
                 "h1": {

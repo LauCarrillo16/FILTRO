@@ -1,4 +1,5 @@
 import datos
+from datetime import datetime
 
 #Funciones Coordinador}
 
@@ -155,16 +156,59 @@ def asignarRuta():
             try:
                 opc = int(opc)
                 if 1 <= opc <= len(datos.data["rutas"]):
-                    rutaAsignada = datos.data["rutas"][opc - 1]["nombre"]
+                    rutaAsignada = datos.data["rutas"][opc - 1]
 
-                    for stack in datos.data["stacks"][0].items():
-                        if stack["capacidad"] < stack["capacidadMaxima"]:
-                            stack["capacidad"] +=1
-                            camper["rutaAsignada"] = rutaAsignada
-                            datos.guardarDatos()
-                            print(f"Camper asignado a la ruta '{rutaAsignada}' con exito")
+                    print(f"Ruta seleccionada: {rutaAsignada["nombre"]}")
+                    for trainer in datos.data["trainers"]:
+                        for rutaAsignadaTrainer in trainer["rutasAsignadas"]:
+                            if rutaAsignadaTrainer["ruta"] == rutaAsignada["nombre"]:
+                                print(f"Trainer: {trainer["nombre"]} {trainer["apellido"]}")
+                    
+                    print("Stacks disponibles: ")
+                    for idx, stack in enumerate(datos.data["stacks"], start=1):
+                        print(f"{idx}. {stack['nombre']} - Capacidad: {stack["capacidad"]}/{stack["capacidadMaxima"]}")
+                        print("Horarios: ")
+                        for key, horario in stack["horarios"].items():
+                            print(f"{key}: {horario['hora']} - Trainer: {horario['trainer']}, Ruta: {horario['ruta']}")
+
+
+                    stackSelect = int(input("Seleccione un stack: "))-1
+                    if stackSelect < 0 or stackSelect >= len(datos.data["stacks"]):
+                        print("Stack no existe")
+                        return
+
+                    stack = datos.data["stacks"][stackSelect]
+
+                    print("Horarios disponibles: ")
+                    for key, horario in stack["horarios"].items():
+                        print(f"{key}: {horario['hora']}")
+
+                    horarioSelec = input("Seleccion el horario para asignar (h1, h2, h3): ")
+                    if horarioSelec not in stack["horarios"]:
+                        print("Horario invalido")
+                        return
+                    horario = stack["horarios"][horarioSelec]
+                    
+                    if stack["capacidad"] < stack["capacidadMaxima"]:
+                        fechaInicio = input("Ingresa la fecha de inicio (YYYY-MM-DD): ")
+                        fechaFin = input("Ingresa la fecha de fin (YYYY-MM-DD): ")
+                        try:
+                            fechaInicio = datetime.strptime(fechaInicio, "%Y-%m-%d")
+                            fechaFin = datetime.strptime(fechaFin, "%Y-%m-%d")
+                        except ValueError:
+                            print("Formato de fecha invalido")
                             return
-                    print("No hay capacidad disponible en los stacks para asignar camper")
+            
+                        stack["capacidad"] +=1
+                        camper["rutaAsignada"] = rutaAsignada
+                        camper["fechaInicio"] = fechaInicio.strftime('%Y-%m-%d')
+                        camper["fechaFin"] = fechaFin.strftime('%Y-%m-%d')
+                        datos.guardarDatos()
+                        print(f"Camper asignado a la ruta '{rutaAsignada}' con exito")
+                        print(f"Fecha de inicio: {fechaInicio.strftime('%Y-%m-%d')}")
+                        print(f"Fecha de finalización: {fechaFin.strftime('%Y-%m-%d')}")
+                    else:
+                        print("No hay capacidad disponible en los stacks para asignar camper")
                 else:
                     print("Opcion invalida")
             except ValueError:
