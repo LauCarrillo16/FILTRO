@@ -26,6 +26,7 @@ def menuCoordinador():
         print("3. Registrar nueva ruta")
         print("4. Registrar nuevo Stack")
         print("5. Matriculas")
+        print("6. Registrar Trainer")
         opc = 0
         try:
             opc = int(input("Ingrese la opcion deseada: "))
@@ -41,6 +42,8 @@ def menuCoordinador():
             gestionCampus.nuevoStack()
         elif opc == 5:
             menuMatriculas()
+        elif opc == 6:
+            gestionCampus.registrarTrainer()
         
 def menuMatriculas():
     while True:

@@ -147,3 +147,17 @@ def asignarRuta():
                 print("Opcion invalida")
     else:
         print("No se encontro el camper")
+
+#Registrar nuevo Trainer
+def registrarTrainer():
+    trainer = {
+        "cc": input("Ingrese el numero de documento del nuevo trainer: "),
+        "nombre": input("Ingrese el nombre del nuevo trainer: "),
+        "apellido": input("Ingrese el apellido del nuevo trainer: "),
+        "direccion": input("Ingrese la direccion del nuevo trainer: "),
+        "contacto": input("Ingrese el telefono movil: "),
+
+    }
+    datos.data["trainers"].append(trainer)
+    datos.guardarDatos()
+    print("Trainer registrado con exito")

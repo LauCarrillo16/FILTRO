@@ -20,7 +20,22 @@
             "rutaAsignada": "Ruta Java"
         }
     ],
-    "trainers": [],
+    "trainers": [
+        {
+            "cc": "37746639",
+            "nombre": "Juan",
+            "apellido": "Perez",
+            "direccion": "cabecera",
+            "contacto": "3184952471"
+        },
+        {
+            "cc": "15746844",
+            "nombre": "Ana",
+            "apellido": "Morelo",
+            "direccion": "conucos",
+            "contacto": "315547823"
+        }
+    ],
     "coordinadores": [],
     "rutas": [
         {
