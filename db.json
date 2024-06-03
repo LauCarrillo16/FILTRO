@@ -16,7 +16,8 @@
                 "notaTeorica": 85,
                 "notaPractica": 95,
                 "promedio": 90.0
-            }
+            },
+            "rutaAsignada": "Ruta Java"
         }
     ],
     "trainers": [],
@@ -78,19 +79,23 @@
     "stacks": [
         {
             "area1": {
-                "capacidad": 33,
+                "capacidad": 1,
+                "capacidadMaxima": 33,
                 "horas": 4
             },
             "area2": {
-                "capacidad": 33,
+                "capacidad": 0,
+                "capacidadMaxima": 33,
                 "horas": 4
             },
             "area3": {
-                "capacidad": 33,
+                "capacidad": 0,
+                "capacidadMaxima": 33,
                 "horas": 4
             },
             "area4": {
-                "capacidad": 33,
+                "capacidad": 0,
+                "capacidadMaxima": 33,
                 "horas": 4
             }
         }

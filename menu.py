@@ -25,6 +25,7 @@ def menuCoordinador():
         print("2. Registrar nota de camper registrado")
         print("3. Registrar nueva ruta")
         print("4. Registrar nuevo Stack")
+        print("5. Matriculas")
         opc = 0
         try:
             opc = int(input("Ingrese la opcion deseada: "))
@@ -38,4 +39,18 @@ def menuCoordinador():
             gestionCampus.registrarRuta()
         elif opc == 4:
             gestionCampus.nuevoStack()
+        elif opc == 5:
+            menuMatriculas()
         
+def menuMatriculas():
+    while True:
+        print("Gestion de Matriculas")
+        print("1. Asignar ruta a un Camper")
+        opc = 0
+        try:
+            opc = int(input("Ingrese la opcion deseada: "))
+        except Exception:
+            print("Opcion invalida")
+        if opc == 1:
+            gestionCampus.asignarRuta()
+            
