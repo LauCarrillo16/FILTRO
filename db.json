@@ -20,7 +20,13 @@
             "rutaAsignada": {
                 "nombre": "Ruta NodeJs",
                 "modulos": {
-                    "Fundamentos de programacion": [],
+                    "Fundamentos de programacion": {
+                        "teorica": 85,
+                        "practica": 95,
+                        "quizesTrabajos": 50,
+                        "notaFinal": 87.5,
+                        "aprobado": true
+                    },
                     "Programacion Web": [],
                     "Programacion formal": [],
                     "Bases de datos": [],

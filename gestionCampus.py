@@ -311,14 +311,11 @@ def evaluarModulo():
     moduloNombre = list(modulos.keys())[moduloSelec]
     modulo = modulos[moduloNombre]
 
-    if "teorica" not in modulo:
-        modulo["teorica"] = None
-    if "practica" not in modulo:
-        modulo["practica"] = None
-    if "quizesTrabajos" not in modulo:
-        modulo["quizesTrabajos"] = None
+    if isinstance(modulo, list):
+        modulos[moduloNombre] ={}
+        modulo = modulos[moduloNombre]
 
-    if modulo["teorica"] is not None and modulo["practica"] is not None and modulo["quizesTrabajos"] is not None:
+    if all(key in modulo for key in ["teorica", "practica", "quizesTrabajos"]):
         print("Modulo ya evaluado")
         return
     
