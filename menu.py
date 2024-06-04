@@ -2,6 +2,7 @@ import datos
 import gestionCampus
 
 def menuPrincipal():
+    datos.cargarDatos()
     while True:
         print("Bienvenido al sistema de gestion de CampusLands")
         print("1. Coordinador")
@@ -91,7 +92,8 @@ def menuReportes():
             gestionCampus.campersRiestoA()
         elif opc == 4:
             gestionCampus.trainersCampus()
-
+        elif opc == 5:
+            gestionCampus.campersYtrainersRuta()
 
             
 def menuTrainer():

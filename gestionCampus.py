@@ -411,4 +411,40 @@ def trainersCampus():
     print("Trainers registrados: ")
     for trainer in datos.data["trainers"]:
         print(f"Nombre: {trainer['nombre']} {trainer['apellido']}, Documento: {trainer['cc']}")
-        
+
+
+def campersYtrainersRuta():
+    print("Rutas: ")
+    for idx, ruta in enumerate(datos.data["rutas"], start=1):
+        print(f"{idx}. {ruta['nombre']}")
+
+    rutaidx = int(input("Ingrese la ruta deseada: ")) -1
+    if 0 <= rutaidx < len(datos.data["rutas"]):
+        rutaSelec = datos.data["rutas"][rutaidx]["nombre"]
+
+        campersRuta = []
+        trainersRuta = []
+
+        for camper in datos.data["campers"]:
+            if isinstance(camper.get("rutaAsignada"), dict) and camper["rutaAsignada"].get("nombre") == rutaSelec:
+                campersRuta.append(camper)
+
+        for trainer in datos.data["trainers"]:
+            for rutasAsinadas in trainer.get("rutasAsignadas", []):
+                if rutasAsinadas.get("ruta") == rutaSelec:
+                    trainersRuta.append(trainer)
+
+        print("Campers asociados a la ruta: ", rutaSelec)
+        if campersRuta:
+            for camper in campersRuta:
+                print(f"Nombre: {camper['nombre']} {camper['apellido']}, Documento: {camper['cc']}")
+        else:
+            print("No hay campers asociados a esta ruta")
+        print("\nTrainers asociados a la ruta: ", rutaSelec)
+        if trainersRuta:
+            for trainer in trainersRuta:
+                print(f"Nombre: {trainer['nombre']} {trainer['apellido']}, Documento: {trainer['cc']}")
+        else:
+            print("No hay trainers asociados a esta ruta")
+    else:
+        print("Ruta no encontrada")

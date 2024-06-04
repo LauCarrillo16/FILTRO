@@ -179,7 +179,7 @@
             }
         },
         {
-            "nombre": "A1",
+            "nombre": "A",
             "modulos": {
                 "Fundamentos de programacion": [
                     "python",
