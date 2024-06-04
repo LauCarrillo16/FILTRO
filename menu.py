@@ -89,6 +89,8 @@ def menuReportes():
             gestionCampus.campersAprobados()
         elif opc == 3:
             gestionCampus.campersRiestoA()
+        elif opc == 4:
+            gestionCampus.trainersCampus()
 
 
             

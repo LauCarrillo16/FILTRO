@@ -403,3 +403,12 @@ def campersAprobados():
     for camper in campersAprobados:
         print(f"Nombre: {camper['nombre']} {camper['apellido']}, Documento: {camper['cc']}, Promedio: {camper['notasRegistro']['promedio']}")
         
+
+def trainersCampus():
+    if not datos.data["trainers"]:
+        print("No hay trainers")
+        return
+    print("Trainers registrados: ")
+    for trainer in datos.data["trainers"]:
+        print(f"Nombre: {trainer['nombre']} {trainer['apellido']}, Documento: {trainer['cc']}")
+        
