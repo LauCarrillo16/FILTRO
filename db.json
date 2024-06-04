@@ -48,6 +48,25 @@
                 "notaPractica": 68,
                 "promedio": 61
             }
+        },
+        {
+            "cc": "12345",
+            "nombre": "jose maria",
+            "apellido": "marino nu\u00f1ez",
+            "direccion": "florida",
+            "acudiente": "mama",
+            "contacto": {
+                "movil": "4567",
+                "fijo": "1234"
+            },
+            "estatus": "Aprobado",
+            "riesgo": "bajo",
+            "rutaAsignada": "",
+            "notasRegistro": {
+                "notaTeorica": 45,
+                "notaPractica": 100,
+                "promedio": 72
+            }
         }
     ],
     "trainers": [
@@ -76,7 +95,13 @@
             "apellido": "Morelo",
             "direccion": "conucos",
             "contacto": "315547823",
-            "rutasAsignadas": []
+            "rutasAsignadas": [
+                {
+                    "ruta": "Ruta NetCore",
+                    "stack": "area2",
+                    "horario": "2pm"
+                }
+            ]
         }
     ],
     "coordinadores": [],
@@ -132,6 +157,28 @@
                     "pstgrest"
                 ]
             }
+        },
+        {
+            "nombre": "A1",
+            "modulos": {
+                "Fundamentos de programacion": [
+                    "python",
+                    "pseint"
+                ],
+                "Programacion web": [
+                    "html",
+                    "css"
+                ],
+                "Programacion formal": [
+                    ""
+                ],
+                "Bases de datos": [
+                    ""
+                ],
+                "Backend": [
+                    ""
+                ]
+            }
         }
     ],
     "stacks": [
@@ -160,6 +207,10 @@
                     "trainer": null,
                     "ruta": null
                 }
+            },
+            "a5": {
+                "capacidad": 33,
+                "horas": 4
             }
         },
         {
@@ -179,8 +230,8 @@
                 },
                 "h3": {
                     "hora": "2pm",
-                    "trainer": null,
-                    "ruta": null
+                    "trainer": "15746844",
+                    "ruta": "Ruta NetCore"
                 },
                 "h4": {
                     "hora": "6pm",
