@@ -73,6 +73,20 @@
                 "notaPractica": 100,
                 "promedio": 72
             }
+        },
+        {
+            "cc": "91485512",
+            "nombre": "Ivan ",
+            "apellido": "Carrillo",
+            "direccion": "Florida",
+            "acudiente": "Adela",
+            "contacto": {
+                "movil": "12358",
+                "fijo": "325476"
+            },
+            "estatus": "Inscrito",
+            "riesgo": "",
+            "rutaAsignada": ""
         }
     ],
     "trainers": [

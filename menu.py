@@ -29,6 +29,7 @@ def menuCoordinador():
         print("4. Registrar nuevo Stack")
         print("5. Registrar Trainer")
         print("6. Matriculas (asignar camper a ruta o trainer a ruta)")
+        print("7. Reportes")
 
         opc = 0
         try:
@@ -47,6 +48,8 @@ def menuCoordinador():
             gestionCampus.registrarTrainer()
         elif opc == 6:
             menuMatriculas()
+        elif opc == 7:
+            menuReportes()
 
         
 def menuMatriculas():
@@ -64,6 +67,30 @@ def menuMatriculas():
             gestionCampus.asignarRuta()
         elif opc == 2:
             gestionCampus.asginarTrainerRuta()
+
+def menuReportes():
+    datos.cargarDatos()
+    while True:
+        print("Reportes")
+        print("1. Campers que se encuentren enestado inscrito")
+        print("2. Campers que aprobaron el examen inicial")
+        print("3. Campers que cuentan con riesgo algo")
+        print("4. Trainers de CampusLands")
+        print("5. Campers y Trainers asociados a una ruta")
+        print("6. Cuantos Campers perdieron y aprobaron los modulos y su entrenador")
+        opc = 0
+        try:
+            opc = int(input("Ingrese la opcion deseada: "))
+        except Exception:
+            print("Opcion invalida")
+        if opc == 1:
+            gestionCampus.campersInscritos()
+        elif opc == 2:
+            gestionCampus.campersAprobados()
+        elif opc == 3:
+            gestionCampus.campersRiestoA()
+
+
             
 def menuTrainer():
     datos.cargarDatos()

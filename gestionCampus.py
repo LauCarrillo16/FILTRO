@@ -335,3 +335,71 @@ def evaluarModulo():
     datos.guardarDatos()
     print(f"Evaluacion del modulo '{modulo}' completa")
     print(f"Nota final: {promedio:.2f} - {'Aproado' if aprobado else 'No Aprobado'}")
+
+def calcularPromedioNotas(modulos):
+    totalNotas = 0
+    cantidadModulos = 0
+
+    for modulo in modulos.values():
+        if isinstance(modulo, dict) and "notaFinal" in modulo:
+            totalNotas += modulo["notaFinal"]
+            cantidadModulos += 1
+
+        if cantidadModulos == 0:
+            return 0
+        return totalNotas // cantidadModulos
+    
+def actualizarRiesgo(camper):
+    if "rutaAsignada" in camper and camper["rutaAsignada"]:
+        ruta = camper["rutaAsignada"]
+        modulos = ruta["modulos"]
+        promedio = calcularPromedioNotas(modulos)
+
+        if promedio < 60:
+            camper["riesgo"] = "alto"
+        else:
+            camper["riesgo"] = "bajo"
+
+        camper["notasRegistro"] = {
+            "promedio": promedio
+        }
+
+
+def campersRiestoA():
+    campers = datos.data["campers"]
+
+    for camper in campers:
+        actualizarRiesgo(camper)
+    
+    campersRiestoA = [camper for camper in campers if camper.get("riesgo") == "alto"]
+
+    if not campersRiestoA:
+        print("No hay campers con riesgo alto")
+        return
+    print("Campers con riesgo alto:")
+    for camper in campersRiestoA:
+        print(f"Nombre: {camper['nombre']} {camper['apellido']}, Documento: {camper['cc']}, Riesgo: {camper['riesgo']}")
+    datos.guardarDatos()
+
+
+def campersInscritos():
+    campersInscritos = [camper for camper in datos.data["campers"] if camper.get("estatus") == "Inscrito"]
+
+    if not campersInscritos:
+        print("No hay campers inscritos")
+        return
+    print("Campers inscritos:")
+    for camper in campersInscritos:
+        print(f"Nombre: {camper['nombre']} {camper['apellido']}, Documento: {camper['cc']}, Estado: {camper['estatus']}")
+
+
+def campersAprobados():
+    campersAprobados = [camper for camper in datos.data["campers"] if "notasRegistro" in camper and camper["notasRegistro"].get("promedio", 0) >= 60]
+
+    if not campersAprobados:
+        print("No hay campers que hayan aprobado el examen inicial")
+        return
+    print("Campers que han aprobado el examen inicial:")
+    for camper in campersAprobados:
+        print(f"Nombre: {camper['nombre']} {camper['apellido']}, Documento: {camper['cc']}, Promedio: {camper['notasRegistro']['promedio']}")
+        
