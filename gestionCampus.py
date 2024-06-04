@@ -292,7 +292,7 @@ def evaluarModulo():
         print("Camper no encontrado")
         return
     
-    if "ruraAsignada" not in camper or not camper["rutaAsignada"] or "nombre" not in camper["rutaAsignada"]:
+    if not bool(camper["rutaAsignada"]):
         print("Camper no tiene ruta asignada")
         return
     
@@ -300,7 +300,7 @@ def evaluarModulo():
     modulos = ruta["modulos"]
     
     print("Modulos disponibles: ")
-    for idx, modulo in enumerate(modulos.keys, start=1):
+    for idx, modulo in enumerate(modulos.keys(), start=1):
         print(f"{idx}. {modulo}")
 
     moduloSelec = int(input("Seleccione un modulo para evaluar: "))-1
