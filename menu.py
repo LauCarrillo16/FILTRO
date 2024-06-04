@@ -16,6 +16,8 @@ def menuPrincipal():
             print("Opcion invalida")
         if opc == 1:
             menuCoordinador()
+        if opc == 2:
+            menuTrainer()
     
 
 def menuCoordinador():
@@ -25,8 +27,9 @@ def menuCoordinador():
         print("2. Registrar nota de camper registrado")
         print("3. Registrar nueva ruta")
         print("4. Registrar nuevo Stack")
-        print("5. Matriculas (asignar camper a ruta o trainer a ruta)")
-        print("6. Registrar Trainer")
+        print("5. Registrar Trainer")
+        print("6. Matriculas (asignar camper a ruta o trainer a ruta)")
+
         opc = 0
         try:
             opc = int(input("Ingrese la opcion deseada: "))
@@ -41,9 +44,10 @@ def menuCoordinador():
         elif opc == 4:
             gestionCampus.nuevoStack()
         elif opc == 5:
-            menuMatriculas()
-        elif opc == 6:
             gestionCampus.registrarTrainer()
+        elif opc == 6:
+            menuMatriculas()
+
         
 def menuMatriculas():
     while True:
@@ -60,3 +64,14 @@ def menuMatriculas():
         elif opc == 2:
             gestionCampus.asginarTrainerRuta()
             
+def menuTrainer():
+    while True:
+        print("Bienvenido Trainer")
+        print("1. Asignar notas del modulo")
+        opc = 0
+        try:
+            opc = int(input("Ingrese la opcion deseada: "))
+        except Exception:
+            print("Opcion invalida")
+        if opc == 1:
+            gestionCampus.evaluarModulo()

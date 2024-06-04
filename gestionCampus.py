@@ -285,3 +285,57 @@ def asginarTrainerRuta():
     datos.guardarDatos()
     print(f"Trainer '{trainer['nombre']} {trainer['apellido']}' asignado a la ruta '{ruta['nombre']}' en el stack '{stack['nombre']}' en el horario '{horario['hora']}' con éxito")
 
+def evaluarModulo():
+    cc = input("Ingrese el numero de documento del camper: ")
+    camper = especificoCamper(cc)
+
+    if not camper:
+        print("Camper no encontrado")
+        return
+    
+    if "ruraAsignada" not in camper or not camper["rutaAsignada"] or "nombre" not in camper["rutaAsignada"]:
+        print("Camper no tiene ruta asignada")
+        return
+    
+    ruta = camper["rutaAsignada"]
+    modulos = ruta["modulos"]
+    
+    print("Modulos disponibles: ")
+    for idx, modulo in enumerate(modulos.keys, start=1):
+        print(f"{idx}. {modulo}")
+
+    moduloSelec = int(input("Seleccione un modulo para evaluar: "))-1
+    if moduloSelec < 0 or moduloSelec >= len(modulos):
+        print("Opcion invalida")
+        return
+    
+    moduloNombre = list(modulos.keys())[moduloSelec]
+    modulo = modulos[moduloNombre]
+
+    if "teorica" not in modulo:
+        modulo["teorica"] = None
+    if "practica" not in modulo:
+        modulo["practica"] = None
+    if "quizesTrabajos" not in modulo:
+        modulo["quizesTrabajos"] = None
+
+    if modulo["teorica"] is not None and modulo["practica"] is not None and modulo["quizesTrabajos"] is not None:
+        print("Modulo ya evaluado")
+        return
+    
+    notaTeorica = int(input("Ingrese la nota de la prueba teorica: "))
+    notaPractica = int(input("Ingrese la nota de la prueba practica: "))
+    notaQuizesTrabajos = int(input("Ingrese la nota de los quizes y trabajos: "))
+
+    promedio = (notaTeorica * 0.3) + (notaPractica * 0.6) + (notaQuizesTrabajos * 0.1)
+    aprobado = promedio >= 60
+
+    modulo["teorica"] = notaTeorica
+    modulo["practica"] = notaPractica
+    modulo["quizesTrabajos"] = notaQuizesTrabajos
+    modulo["notaFinal"] = promedio
+    modulo["aprobado"] = aprobado
+
+    datos.guardarDatos()
+    print(f"Evaluacion del modulo '{modulo}' completa")
+    print(f"Nota final: {promedio:.2f} - {'Aproado' if aprobado else 'No Aprobado'}")
