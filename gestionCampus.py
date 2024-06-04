@@ -43,29 +43,30 @@ def registrarNotaCamper():
 
     for camper in datos.data["campers"]:
         if camper["cc"] == cc:
-            print(f"Camper encontrado: {camper["nombre"]}{camper["apellido"]}")
+            print(f"Camper encontrado: {camper['nombre']}{camper['apellido']}")
 
-        notaRegistroTeo = int(input("Ingrese la nota teorica del camper: "))
-        notaRegistroPrac = int(input("Ingrese la nota practica del camper: "))
+            notaRegistroTeo = int(input("Ingrese la nota teorica del camper: "))
+            notaRegistroPrac = int(input("Ingrese la nota practica del camper: "))
 
-        promedio = (notaRegistroTeo + notaRegistroPrac)//2
+            promedio = (notaRegistroTeo + notaRegistroPrac)//2
 
-        if promedio >= 60:
-            camper["estatus"] = "Aprobado"
-            camper["riesgo"] = "bajo"
-        else:
-            camper["estatus"] = "Reprobado"
-            camper["riesgo"] = "alto"
+            if promedio >= 60:
+                camper["estatus"] = "Aprobado"
+                camper["riesgo"] = "bajo"
+            else:
+                camper["estatus"] = "Reprobado"
+                camper["riesgo"] = "alto"
     
-        camper["notasRegistro"] = {
-            "notaTeorica": notaRegistroTeo,
-            "notaPractica": notaRegistroPrac,
-            "promedio": promedio
-        }
-        datos.guardarDatos()
-        print("Notas registradas y camper actualizado con exito")
-        return
+            camper["notasRegistro"] = {
+                "notaTeorica": notaRegistroTeo,
+                "notaPractica": notaRegistroPrac,
+                "promedio": promedio
+            }
+            datos.guardarDatos()
+            print("Notas registradas y camper actualizado con exito")
+            return
     print("No se encontro el camper")
+
 
 #Registrar ruta
 def registrarRuta():
@@ -158,15 +159,15 @@ def asignarRuta():
                 if 1 <= opc <= len(datos.data["rutas"]):
                     rutaAsignada = datos.data["rutas"][opc - 1]
 
-                    print(f"Ruta seleccionada: {rutaAsignada["nombre"]}")
+                    print(f"Ruta seleccionada: {rutaAsignada['nombre']}")
                     for trainer in datos.data["trainers"]:
                         for rutaAsignadaTrainer in trainer["rutasAsignadas"]:
                             if rutaAsignadaTrainer["ruta"] == rutaAsignada["nombre"]:
-                                print(f"Trainer: {trainer["nombre"]} {trainer["apellido"]}")
+                                print(f"Trainer: {trainer['nombre']} {trainer['apellido']}")
                     
                     print("Stacks disponibles: ")
                     for idx, stack in enumerate(datos.data["stacks"], start=1):
-                        print(f"{idx}. {stack['nombre']} - Capacidad: {stack["capacidad"]}/{stack["capacidadMaxima"]}")
+                        print(f"{idx}. {stack['nombre']} - Capacidad: {stack['capacidad']}/{stack['capacidadMaxima']}")
                         print("Horarios: ")
                         for key, horario in stack["horarios"].items():
                             print(f"{key}: {horario['hora']} - Trainer: {horario['trainer']}, Ruta: {horario['ruta']}")

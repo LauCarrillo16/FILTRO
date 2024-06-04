@@ -14,8 +14,8 @@
             "riesgo": "bajo",
             "notasRegistro": {
                 "notaTeorica": 85,
-                "notaPractica": 95,
-                "promedio": 90.0
+                "notaPractica": 90,
+                "promedio": 87
             },
             "rutaAsignada": {
                 "nombre": "Ruta NodeJs",
@@ -29,6 +29,25 @@
             },
             "fechaInicio": "2024-10-02",
             "fechaFin": "2025-10-02"
+        },
+        {
+            "cc": "123456789",
+            "nombre": "Juankis",
+            "apellido": "Marino",
+            "direccion": "calle 1",
+            "acudiente": "laura",
+            "contacto": {
+                "movil": "3213213232",
+                "fijo": "1234567"
+            },
+            "estatus": "Aprobado",
+            "riesgo": "bajo",
+            "rutaAsignada": "",
+            "notasRegistro": {
+                "notaTeorica": 55,
+                "notaPractica": 68,
+                "promedio": 61
+            }
         }
     ],
     "trainers": [

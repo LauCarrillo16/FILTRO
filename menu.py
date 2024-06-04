@@ -2,7 +2,6 @@ import datos
 import gestionCampus
 
 def menuPrincipal():
-    datos.cargarDatos()
     while True:
         print("Bienvenido al sistema de gestion de CampusLands")
         print("1. Coordinador")
@@ -21,6 +20,7 @@ def menuPrincipal():
     
 
 def menuCoordinador():
+    datos.cargarDatos()
     while True:
         print("Bienvenido Coordinador")
         print("1. Registrar camper")
@@ -50,6 +50,7 @@ def menuCoordinador():
 
         
 def menuMatriculas():
+    datos.cargarDatos()
     while True:
         print("Gestion de Matriculas")
         print("1. Asignar ruta a un Camper")
@@ -65,6 +66,7 @@ def menuMatriculas():
             gestionCampus.asginarTrainerRuta()
             
 def menuTrainer():
+    datos.cargarDatos()
     while True:
         print("Bienvenido Trainer")
         print("1. Asignar notas del modulo")
