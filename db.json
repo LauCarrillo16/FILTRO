@@ -46,14 +46,37 @@
                 "movil": "3213213232",
                 "fijo": "1234567"
             },
-            "estatus": "Aprobado",
+            "estatus": "cursando",
             "riesgo": "bajo",
-            "rutaAsignada": "",
+            "rutaAsignada": {
+                "nombre": "AplicacionesMoviles",
+                "modulos": {
+                    "Fundamentos de programacion": [
+                        "Pseint",
+                        "Python"
+                    ],
+                    "Programacion web": [
+                        "html",
+                        "css"
+                    ],
+                    "Programacion formal": [
+                        "java"
+                    ],
+                    "Bases de datos": [
+                        "mongodb"
+                    ],
+                    "Backend": [
+                        "pstgrest"
+                    ]
+                }
+            },
             "notasRegistro": {
-                "notaTeorica": 55,
-                "notaPractica": 68,
-                "promedio": 61
-            }
+                "notaTeorica": 74,
+                "notaPractica": 86,
+                "promedio": 80
+            },
+            "fechaInicio": "2024-06-05",
+            "fechaFin": "2025-01-05"
         },
         {
             "cc": "12345",
@@ -235,7 +258,7 @@
         },
         {
             "nombre": "area2",
-            "capacidad": 0,
+            "capacidad": 1,
             "capacidadMaxima": 33,
             "horarios": {
                 "h1": {

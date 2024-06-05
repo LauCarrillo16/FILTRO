@@ -202,6 +202,7 @@ def asignarRuta():
                         camper["rutaAsignada"] = rutaAsignada
                         camper["fechaInicio"] = fechaInicio.strftime('%Y-%m-%d')
                         camper["fechaFin"] = fechaFin.strftime('%Y-%m-%d')
+                        camper["estatus"] = "cursando"
                         datos.guardarDatos()
                         print(f"Camper asignado a la ruta '{rutaAsignada}' con exito")
                         print(f"Fecha de inicio: {fechaInicio.strftime('%Y-%m-%d')}")
