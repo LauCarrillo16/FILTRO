@@ -448,3 +448,88 @@ def campersYtrainersRuta():
             print("No hay trainers asociados a esta ruta")
     else:
         print("Ruta no encontrada")
+
+
+def cuantosPYA():
+    print("Rutas: ")
+    for idx, ruta in enumerate(datos.data["rutas"], start=1):
+        print(f"{idx}. {ruta['nombre']}")
+
+    rutaidx = int(input("Ingrese la ruta deseada: ")) -1
+    if 0 <= rutaidx < len(datos.data["rutas"]):
+        rutaSelec = datos.data["rutas"][rutaidx]
+    
+        trainerRuta = None
+        for trainer in datos.data["trainers"]:
+            for rutasAsinadas in trainer.get("rutasAsignadas", []):
+                if rutasAsinadas.get("ruta") == rutaSelec["nombre"]:
+                    trainerRuta = trainer
+                    break
+            if "trainerRuta" in locals():
+                break
+
+        if "trainerRuta" not in locals():
+            print("No hay trainers asociados a esta ruta")
+            return
+        
+        print(f"Trainer de ruta {rutaSelec['nombre']}: {trainerRuta['nombre']} {trainerRuta['apellido']}\n")
+
+        modulos = rutaSelec["modulos"]
+        campersAprobados = 0
+        campersReprobados = 0
+        for modulo, detalles in modulos.items():
+            for camper in datos.data["campers"]:
+                rutaAsignada = camper.get("rutaAsignada", {})
+                if isinstance(rutaAsignada, dict) and rutaAsignada.get("nombre") == rutaSelec["nombre"]:
+                    notasModulo = rutaAsignada.get("modulos", {}).get(modulo)
+                    if isinstance(notasModulo, dict) and notasModulo.get("aprobado", False):
+                        campersAprobados += 1
+                    else:
+                        campersReprobados += 1
+            
+            print(f"Cantidad de campers aque aprobaron el modulo {modulo}: {campersAprobados}")
+            print(f"Cantidad de campers aque reprobó el modulo {modulo}: {campersReprobados}")
+            
+            campersAprobados = 0
+            campersReprobados = 0
+    else:
+        print("Ruta no encontrada")
+
+def verMisDatos():
+    cc = input("Ingrese su número de cédula: ")
+    for camper in datos.data["campers"]:
+        if camper["cc"] == cc:
+            print("Información del Camper:")
+            print(f"CC: {camper['cc']}")
+            print(f"Nombre: {camper['nombre']} {camper['apellido']}")
+            print(f"Dirección: {camper['direccion']}")
+            print(f"Acudiente: {camper['acudiente']}")
+            print("Contacto:")
+            print(f"    - Móvil: {camper['contacto'].get('movil', 'No disponible')}")
+            print(f"    - Fijo: {camper['contacto'].get('fijo', 'No disponible')}")
+            print(f"Estatus: {camper['estatus']}")
+            print(f"Riesgo: {camper['riesgo']}")
+            print("Notas de Registro:")
+            print(f"    - Nota Teórica: {camper['notasRegistro'].get('notaTeorica', 'No disponible')}")
+            print(f"    - Nota Práctica: {camper['notasRegistro'].get('notaPractica', 'No disponible')}")
+            print(f"    - Promedio: {camper['notasRegistro'].get('promedio', 'No disponible')}")
+
+            ruta_asignada = camper.get("rutaAsignada", {})
+            if ruta_asignada:
+                print("Ruta Asignada:")
+                print(f"    - Nombre: {ruta_asignada.get('nombre', 'No disponible')}")
+                print("Modulos:")
+                for modulo, detalles in ruta_asignada.get('modulos', {}).items():
+                    print(f"    - Nombre del Módulo: {modulo}")
+                    if isinstance(detalles, dict):  # Verifica si detalles es un diccionario
+                        print(f"    - Teórica: {detalles.get('teorica', 'No disponible')}")
+                        print(f"    - Práctica: {detalles.get('practica', 'No disponible')}")
+                        print(f"    - Quizes y Trabajos: {detalles.get('quizesTrabajos', 'No disponible')}")
+                        print(f"    - Nota Final: {detalles.get('notaFinal', 'No disponible')}")
+                        print(f"    - Aprobado: {'Sí' if detalles.get('aprobado', False) else 'No'}")
+                    else:
+                        print("    - No hay detalles disponibles para este módulo.")
+            else:
+                print("El camper no tiene ruta asignada.")
+            return  # Terminamos después de encontrar el camper deseado
+    print("Camper no encontrado.")

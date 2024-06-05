@@ -18,6 +18,8 @@ def menuPrincipal():
             menuCoordinador()
         if opc == 2:
             menuTrainer()
+        if opc == 3:
+            menuCamper()
     
 
 def menuCoordinador():
@@ -94,6 +96,8 @@ def menuReportes():
             gestionCampus.trainersCampus()
         elif opc == 5:
             gestionCampus.campersYtrainersRuta()
+        elif opc == 6:
+            gestionCampus.cuantosPYA()
 
             
 def menuTrainer():
@@ -108,3 +112,16 @@ def menuTrainer():
             print("Opcion invalida")
         if opc == 1:
             gestionCampus.evaluarModulo()
+
+def menuCamper():
+    datos.cargarDatos()
+    while True:
+        print("Bienvenido Camper")
+        print("1. Ver mis datos")
+        opc = 0
+        try:
+            opc = int(input("Ingrese la opcion deseada: "))
+        except Exception:
+            print("Opcion invalida")
+        if opc == 1:
+            gestionCampus.verMisDatos()
